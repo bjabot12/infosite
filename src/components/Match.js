@@ -2,12 +2,10 @@ import React, { Component } from "react"
 
 class Match extends Component {
 
-
   render() {
 
     const date = this.props.data.utcDate
     let finalDate = date.split("T")
-    
 
     return (
       <div style={divStyle}>

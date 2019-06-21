@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 
-import { Table, TableBody, TableCell, TableRow,
-Paper } from "@material-ui/core"
+import { Table, TableBody, TableCell, TableRow, Paper } from "@material-ui/core"
 
 class Weather extends Component {
 
@@ -10,15 +9,6 @@ class Weather extends Component {
     os: null,
     stavva: null
   }
-  
-  // getWeather = () => {
-  //   axios.get("https://api.openweathermap.org/data/2.5/weather?q=Osoyro,no&appid=aabdb65e30e3d10785afe7794bf417ba")
-  //     .then(res => {
-  //       const data = res.data
-  //       console.log(data.main.temp)
-  //       this.setState({data})
-  //     })
-  // }
 
   componentDidMount() {
     axios.get("https://api.openweathermap.org/data/2.5/weather?q=Osoyro,no&appid=aabdb65e30e3d10785afe7794bf417ba")
@@ -26,7 +16,6 @@ class Weather extends Component {
   )}
   
   render() {
-    console.log(this.state.stavva)
     return (
       <div style={weatherStyle}>
         {this.state.os && (
@@ -63,9 +52,6 @@ class Weather extends Component {
 
 const weatherStyle = {
   color: "white",
-  //margin: "5%"
-  //padding: "5%",
-  //marginTop: "5em",
   marginLeft: "5%",
   marginRight: "5%",
   paddingTop: ".5em"

@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import HeaderItem from "./HeaderItem"
 import { Link } from "react-router-dom"
-import { positions } from "@material-ui/system";
 
 export class Header extends Component {
 
@@ -60,9 +59,6 @@ const headlist = {
   position: "fixed",
   top: 0, 
   width: "100%",
-  //marginTop: "0em",
-  //marginBottom: "1em"
-  //backgroundImage: "linear-gradient(#333333, #454545)"
 }
 
 const linkStyle = {

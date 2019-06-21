@@ -1,10 +1,8 @@
 import React, { Component } from "react"
-import { RSA_NO_PADDING } from "constants";
 
 class Footer extends Component {
 
   render() {
-    
     return (
       <div style={footerStyle}>
         <p>Football data provided by the Football-Data.org API</p>
@@ -12,7 +10,6 @@ class Footer extends Component {
       </div>
     )
   }
-
 }
 
 const footerStyle = {
