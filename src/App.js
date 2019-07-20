@@ -6,7 +6,7 @@ import MatchList from "./components/MatchList"
 import Header from "./components/Header"
 import Weather from "./components/Weather"
 import Footer from "./components/Footer"
-import News from "./components/News"
+import NewsList from "./components/NewsList"
 
 export class App extends Component {
 
@@ -17,7 +17,7 @@ export class App extends Component {
           <Route exact path="/" render={props => (
             <React.Fragment>
               <Header />
-              <MatchList />
+              <NewsList />
               <Footer />
             </React.Fragment>
           )}>  
@@ -30,10 +30,10 @@ export class App extends Component {
             </React.Fragment>
           )}>
           </Route>
-          <Route path="/news" render={props => (
+          <Route path="/football" render={props => (
             <React.Fragment>
               <Header />
-              <News />
+              <MatchList />
               <Footer />
             </React.Fragment>
           )}>

@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import HeaderItem from "./HeaderItem"
 import { Link } from "react-router-dom"
+import { Button } from "@material-ui/core"
 
 export class Header extends Component {
 
@@ -30,22 +31,22 @@ export class Header extends Component {
     return (
       <React.Fragment>
         <div style={headlist}>
-          <Link style={linkStyle} to="/">
-            <HeaderItem name="Football" />
-          </Link>
-          <hr/>
-          <Link style={linkStyle} to="/weather">
-            <HeaderItem name="Weather" />
-          </Link>
-          <hr/>
-          <Link style={linkStyle} to="/news">
-            <HeaderItem name="News" />
-          </Link>
+          <div style={{width:"33%", display:"flex"}}>
+            <Link style={linkStyle} to="/">
+              <HeaderItem name="News" />
+            </Link>
+            <Link style={linkStyle} to="/weather">
+              <HeaderItem name="Weather" />
+            </Link>
+            <Link style={linkStyle} to="/football">
+              <HeaderItem name="Football" />
+            </Link>
+          </div>
         </div>
         <div style={{marginTop: "5em"}}>
           <div style={clockStyle}>
-            <h2 style={{textAlign: "center", color: "white"}}>{this.state.date}</h2>
-            <h2 style={{textAlign: "center", color: "white"}}>{this.state.time}</h2>
+            <h2 style={{textAlign: "center", color: "black"}}>{this.state.date}</h2>
+            <h2 style={{textAlign: "center", color: "black"}}>{this.state.time}</h2>
           </div>
         </div>
       </React.Fragment>
@@ -54,11 +55,13 @@ export class Header extends Component {
 }
 
 const headlist = {
-  display: "flex",
-  background: "#696969",
+  background: "white",
   position: "fixed",
   top: 0, 
   width: "100%",
+  opacity: "1",
+  backgroundImage: "linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(13, 17, 198, 1) 100%)",
+  zIndex: "1"
 }
 
 const linkStyle = {
@@ -71,9 +74,8 @@ const clockStyle = {
   marginLeft: "25%",
   marginRight: "25%",
   borderRadius: "7px",
-  backgroundColor: "#75a6d7",
-  backgroundImage: "linear-gradient(#75a6d7, #4286f4)",
-  textShadow: "0px 2px 3px #555"
+  backgroundColor: "white",
+  opacity: ".3",
 }
 
 export default Header

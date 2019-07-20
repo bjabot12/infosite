@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-class Match extends Component {
+class MatchItem extends Component {
 
   render() {
 
@@ -42,4 +42,4 @@ const divStyle = {
   color: "black"
 }
 
-export default Match
+export default MatchItem

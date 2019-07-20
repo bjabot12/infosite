@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import Match from "./Match"
+import MatchItem from "./MatchItem"
 import { Paper } from "@material-ui/core"
 import axios from "axios"
 
 class MatchList extends Component {
 
   state = {
-    matches: null
+    data: null // API response from the football API
   }
 
   componentDidMount() {
@@ -14,19 +14,20 @@ class MatchList extends Component {
       "X-Auth-Token": "e88b0885832c40d2bc5a53db4bdc1ba7"
     }
     axios.get("http://api.football-data.org/v2/matches", {headers})
-    .then(res => this.setState({matches: res.data})
+    .then(res => this.setState({data: res.data})
   )}
 
   render() {
+    console.log(this.state.data)
     return (
       <div style={matchListStyle}>
-        {this.state.matches && 
+        {this.state.data && 
           (<React.Fragment>
-            {this.state.matches.count !== 0 ? (
+            {this.state.data.count !== 0 ? (
               <React.Fragment>
                 <h2 style={{color: "white", textShadow: "0px 2px 3px #555"}}>Todays Matches</h2>
-                <Paper >
-                  {this.state.matches.map(match => <Match 
+                <Paper>
+                  {this.state.data.matches.map(match => <MatchItem 
                     key={match.id} 
                     data={match}
                   />)}
@@ -34,7 +35,7 @@ class MatchList extends Component {
             </React.Fragment>)
             :
             (<div style={noMatchStyle}>
-              <h2 style={{paddingTop: "1em", paddingBottom: "1em", flex: 1, color: "#333333"}}>No matches scheduled for today was received by the API</h2>
+              <h2 style={{paddingTop: "1em", paddingBottom: "1em", flex: 1, color: "black"}}>No matches scheduled for today was received by the API</h2>
             </div>)}
           </React.Fragment>
         )}
@@ -46,7 +47,7 @@ class MatchList extends Component {
 const noMatchStyle = {
   marginTop: ".8em",
   textAlign: "center",
-  backgroundColor: "white",
+  background: "rgba(255, 255, 255, 0.2)",
   marginLeft: "5%",
   marginRight: "5%",
   borderRadius: ".6em",

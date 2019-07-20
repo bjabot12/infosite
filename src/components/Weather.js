@@ -1,16 +1,19 @@
 import React, { Component } from "react"
 import axios from "axios"
-
 import { Table, TableBody, TableCell, TableRow, Paper } from "@material-ui/core"
 
 class Weather extends Component {
 
   state = {
-    os: null,
-    stavva: null
+    os: null, // Data from the weather API
+    stavva: null // Data from the weather API
   }
 
   componentDidMount() {
+    const headers = {
+      "q": "Osoyro, no",
+      "appdid": "aabdb65e30e3d10785afe7794bf417ba"
+    }
     axios.get("https://api.openweathermap.org/data/2.5/weather?q=Osoyro,no&appid=aabdb65e30e3d10785afe7794bf417ba")
     .then(res => this.setState({os: res.data})
   )}
@@ -54,7 +57,7 @@ const weatherStyle = {
   color: "white",
   marginLeft: "5%",
   marginRight: "5%",
-  paddingTop: ".5em"
+  paddingTop: ".5em",
 }
 
 export default Weather
