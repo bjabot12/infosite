@@ -9,30 +9,21 @@ class NewsList extends Component {
   }
 
   componentDidMount() {
-    const headers = {
-      "country": "no",
-      "X-Api-Key": "219a7abe739345e4a89e19dbdce17ef0"
-    }
-    // axios.get("https://newsapi.org/v2/top-headlines", {headers})
-    //   .then(res => this.setState({news: res.data})
-    // )}
-
-    axios.get("https://newsapi.org/v2/top-headlines?country=no&apiKey=219a7abe739345e4a89e19dbdce17ef0")
+    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/news")
       .then(res => this.setState({news: res.data})
-    )}
+    )
+  }
 
   render() {
-    console.log(this.state.news)
+
     return(
       <div style={newsStyle}>
         {this.state.news &&
-          <ul style={{listStyle: "none", align: "center", padding:"0"}}>{this.state.news.articles.map(news => 
-            <li>
-              <NewsItem 
-                key={news.description} 
-                data={news}
-              />
-            </li>
+          <ul style={{listStyle: "none", align: "center", padding:"0"}}> {this.state.news.articles.map(news => 
+            <NewsItem 
+              key={news.title}
+              data={news}
+            />
             )}
           </ul>
         }

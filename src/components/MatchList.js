@@ -10,15 +10,12 @@ class MatchList extends Component {
   }
 
   componentDidMount() {
-    const headers = {
-      "X-Auth-Token": "e88b0885832c40d2bc5a53db4bdc1ba7"
-    }
-    axios.get("http://api.football-data.org/v2/matches", {headers})
+    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/football")
     .then(res => this.setState({data: res.data})
-  )}
+    )
+  }
 
   render() {
-    console.log(this.state.data)
     return (
       <div style={matchListStyle}>
         {this.state.data && 

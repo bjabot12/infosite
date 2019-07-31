@@ -4,18 +4,19 @@ import { Paper } from "@material-ui/core"
 class NewsItem extends Component {
 
   render() {
+    
     return(
       
       <div style={nItemStyle}>
-        <Paper style={{height:"20em", padding:".5em"}}>
-          <a style={{textDecoration:"none", color:"black"}} href={this.props.data.url} target="blank">
+        <a style={{textDecoration:"none", color:"black"}} href={this.props.data.url} target="blank">
+          <Paper style={{height:"20em", padding:".5em"}}>
             <div>
-              <img style={imgStyle} src={this.props.data.urlToImage} />
+              <img style={imgStyle} src={this.props.data.urlToImage} alt="Not provided by the API"/>
               <h4>{this.props.data.title}</h4>
               <p>{this.props.data.description}</p>
-            </div>
-          </a>
+            </div>  
           </Paper>
+        </a>
       </div>
       
     )
@@ -23,17 +24,16 @@ class NewsItem extends Component {
 }
 
 const nItemStyle = {
-  display: "inline",
   float: "left",
-  width: "47%",
+  width: "31.4%",
   height: "20em",
-  margin: "1em"
- 
+  margin: "1em",
+  fontSize: ".9em"
 }
 
 const imgStyle = {
-  width: "45%",
-  height: "45%"
+  width: "30%",
+  height: "30%"
 }
 
 export default NewsItem

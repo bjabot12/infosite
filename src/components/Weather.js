@@ -6,17 +6,13 @@ class Weather extends Component {
 
   state = {
     os: null, // Data from the weather API
-    stavva: null // Data from the weather API
   }
 
   componentDidMount() {
-    const headers = {
-      "q": "Osoyro, no",
-      "appdid": "aabdb65e30e3d10785afe7794bf417ba"
-    }
-    axios.get("https://api.openweathermap.org/data/2.5/weather?q=Osoyro,no&appid=aabdb65e30e3d10785afe7794bf417ba")
+    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/weather")
     .then(res => this.setState({os: res.data})
-  )}
+    )
+  }
   
   render() {
     return (
@@ -58,6 +54,7 @@ const weatherStyle = {
   marginLeft: "5%",
   marginRight: "5%",
   paddingTop: ".5em",
+  marginBottom: "10em"
 }
 
 export default Weather

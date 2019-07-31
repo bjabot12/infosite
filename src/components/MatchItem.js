@@ -10,8 +10,7 @@ class MatchItem extends Component {
     return (
       <div style={divStyle}>
         <p style={compStyle}>{this.props.data.competition.name}</p>
-        <p style={teamStyle}>{this.props.data.homeTeam.name} -  
-        {this.props.data.awayTeam.name}</p>
+        <p style={teamStyle}>{this.props.data.homeTeam.name} - {this.props.data.awayTeam.name}</p>
         <p style={timeStyle}>{finalDate[0]}<br/>{finalDate[1].split("Z")}</p>
       </div>
     )

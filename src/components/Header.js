@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import HeaderItem from "./HeaderItem"
 import { Link } from "react-router-dom"
-import { Button } from "@material-ui/core"
 
 export class Header extends Component {
 
