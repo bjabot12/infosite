@@ -1,23 +1,37 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Table, TableBody, TableCell, TableRow, Paper } from "@material-ui/core"
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners'
 
 class Weather extends Component {
+
+  _isMounted = false
 
   state = {
     os: null, // Data from the weather API
   }
 
   componentDidMount() {
+    this._isMounted = true
+
     axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/weather")
-    .then(res => this.setState({os: res.data})
-    )
+    .then(res => {
+      if(this._isMounted) {
+        this.setState({os: res.data})
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
   
   render() {
+
     return (
       <div style={weatherStyle}>
-        {this.state.os && (
+        {this.state.os ? (
           <React.Fragment>
             <h2>{this.state.os.name}</h2>
             <Paper>
@@ -43,11 +57,23 @@ class Weather extends Component {
               </Table>
             </Paper>
           </React.Fragment>
-        )}  
+        )
+        :
+        <div style={{textAlign:"center"}}> 
+          <ClipLoader
+            css={loadSpinner}
+            color={"#ffffff"}
+            size={"200"}
+          />
+        </div>}
       </div>
     )
   }
 }
+
+const loadSpinner = css`
+    margin-top: 10em;
+`;
 
 const weatherStyle = {
   color: "white",

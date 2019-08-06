@@ -3,6 +3,7 @@ import React, { Component } from "react"
 class HeaderItem extends Component {
 
   render() {
+    
     return (
        <div style={headStyle}>
         <h3>{this.props.name}</h3>

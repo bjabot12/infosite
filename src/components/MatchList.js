@@ -2,44 +2,71 @@ import React, { Component } from "react"
 import MatchItem from "./MatchItem"
 import { Paper } from "@material-ui/core"
 import axios from "axios"
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners'
 
 class MatchList extends Component {
+  _isMounted = false
 
   state = {
     data: null // API response from the football API
   }
 
   componentDidMount() {
+    this._isMounted = true
+
     axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/football")
-    .then(res => this.setState({data: res.data})
-    )
+    .then(res => {
+      if(this._isMounted) {
+        this.setState({data: res.data})
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   render() {
+
     return (
       <div style={matchListStyle}>
-        {this.state.data && 
+        {this.state.data ? 
           (<React.Fragment>
             {this.state.data.count !== 0 ? (
               <React.Fragment>
-                <h2 style={{color: "white", textShadow: "0px 2px 3px #555"}}>Todays Matches</h2>
+                <h2 style={{color: "white"}}>Todays Matches</h2>
                 <Paper>
                   {this.state.data.matches.map(match => <MatchItem 
                     key={match.id} 
                     data={match}
                   />)}
-              </Paper>
-            </React.Fragment>)
+                </Paper>
+              </React.Fragment>
+            )
             :
             (<div style={noMatchStyle}>
               <h2 style={{paddingTop: "1em", paddingBottom: "1em", flex: 1, color: "black"}}>No matches scheduled for today was received by the API</h2>
             </div>)}
           </React.Fragment>
-        )}
+        )
+        :
+        <div style={{textAlign:"center"}}> 
+          <ClipLoader
+            css={loadSpinner}
+            color={"#ffffff"}
+            size={"200"}
+          />
+        </div>
+        }
       </div>
     )
   }
 }
+
+const loadSpinner = css`
+    margin-top: 10em;
+`;
 
 const noMatchStyle = {
   marginTop: ".8em",

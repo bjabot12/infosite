@@ -6,7 +6,6 @@ class NewsItem extends Component {
   render() {
     
     return(
-      
       <div style={nItemStyle}>
         <a style={{textDecoration:"none", color:"black"}} href={this.props.data.url} target="blank">
           <Paper style={{height:"20em", padding:".5em"}}>
