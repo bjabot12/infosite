@@ -31,15 +31,15 @@ export class Header extends Component {
     return (
       <React.Fragment>
         <div style={headlist}>
-          <div style={{width:"33%", display:"flex"}}>
+          <div style={{display:"flex"}}>
             <Link style={linkStyle} to="/">
-              <HeaderItem name="News" />
+              <HeaderItem name="News " />
             </Link>
             <Link style={linkStyle} to="/weather">
-              <HeaderItem name="Weather" />
+              <HeaderItem name="Weather " />
             </Link>
             <Link style={linkStyle} to="/football">
-              <HeaderItem name="Football" />
+              <HeaderItem name="Football " />
             </Link>
           </div>
         </div>
@@ -60,7 +60,7 @@ const headlist = {
   top: 0, 
   width: "100%",
   opacity: "1",
-  backgroundImage: "linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(13, 17, 198, 1) 100%)",
+  backgroundImage: "linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(54, 97, 255, 1) 100%)",
   zIndex: "1"
 }
 

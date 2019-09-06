@@ -4,6 +4,9 @@ import NewsItem from "./NewsItem"
 import { css } from '@emotion/core';
 import { ClipLoader } from 'react-spinners'
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
 class NewsList extends Component {
 
   _isMounted = false
@@ -29,20 +32,22 @@ class NewsList extends Component {
 
   render() {
 
-    return(
+    return (
       <div style={newsStyle}>
         {this.state.news ?
-          (<React.Fragment>
-            <ul style={{listStyle: "none", align: "center", padding:"0"}}> {this.state.news.articles.map(news => 
-              <NewsItem 
-                key={news.title}
-                data={news}
-              />
+          (<div style={{display: "flex", width:"100%"}}>
+            <List> {this.state.news.articles.map(news => 
+              <ListItem style={{width:"10%"}}>
+                  <NewsItem 
+                    key={news.title}
+                    data={news}
+                  />
+                </ListItem>
               )}
-            </ul>
-          </React.Fragment>)
+            </List>
+          </div>)
           :
-          <div style={{marginLeft:"43%"}}> 
+          <div style={{textAlign: "center"}}> 
             <ClipLoader
               css={loadSpinner}
               color={"#ffffff"}

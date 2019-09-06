@@ -5,10 +5,10 @@ class NewsItem extends Component {
 
   render() {
     
-    return(
+    return (
       <div style={nItemStyle}>
         <a style={{textDecoration:"none", color:"black"}} href={this.props.data.url} target="blank">
-          <Paper style={{height:"20em", padding:".5em"}}>
+          <Paper style={{padding:".5em"}}>
             <div>
               <img style={imgStyle} src={this.props.data.urlToImage} alt="Not provided by the API"/>
               <h4>{this.props.data.title}</h4>
@@ -24,8 +24,9 @@ class NewsItem extends Component {
 
 const nItemStyle = {
   float: "left",
-  width: "31.4%",
-  height: "20em",
+  maxWidth: "31.4%",
+  minWidth: "21.4em",
+  //height: "20em",
   margin: "1em",
   fontSize: ".9em"
 }
