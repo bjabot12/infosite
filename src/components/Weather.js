@@ -62,7 +62,7 @@ class Weather extends Component {
         <div style={{textAlign:"center"}}> 
           <ClipLoader
             css={loadSpinner}
-            color={"#ffffff"}
+            color={"black"}
             size={"200"}
           />
         </div>}

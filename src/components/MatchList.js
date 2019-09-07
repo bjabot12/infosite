@@ -54,7 +54,7 @@ class MatchList extends Component {
         <div style={{textAlign:"center"}}> 
           <ClipLoader
             css={loadSpinner}
-            color={"#ffffff"}
+            color={"black"}
             size={"200"}
           />
         </div>
@@ -66,6 +66,7 @@ class MatchList extends Component {
 
 const loadSpinner = css`
     margin-top: 10em;
+    background-color: black;
 `;
 
 const noMatchStyle = {

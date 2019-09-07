@@ -75,7 +75,7 @@ const clockStyle = {
   marginRight: "25%",
   borderRadius: "7px",
   backgroundColor: "white",
-  opacity: ".3",
+  opacity: ".5",
 }
 
 export default Header
