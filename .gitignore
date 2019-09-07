@@ -12,6 +12,8 @@
 /build
 /functions
 /.firebase
+/.firebase
+/firebase.json
 
 # misc
 .DS_Store
