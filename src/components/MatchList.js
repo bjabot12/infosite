@@ -9,7 +9,7 @@ class MatchList extends Component {
   _isMounted = false
 
   state = {
-    data: null // API response from the football API
+    data: null // API response from the football-API
   }
 
   componentDidMount() {
