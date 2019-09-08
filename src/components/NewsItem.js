@@ -23,12 +23,8 @@ class NewsItem extends Component {
 }
 
 const nItemStyle = {
-  float: "left",
-  maxWidth: "31.4%",
-  minWidth: "21.4em",
-  //height: "20em",
   margin: "1em",
-  fontSize: ".9em"
+  fontSize: ".9em",
 }
 
 const imgStyle = {

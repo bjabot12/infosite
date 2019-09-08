@@ -43,7 +43,7 @@ export class Header extends Component {
             </Link>
           </div>
         </div>
-        <div style={{marginTop: "5em"}}>
+        <div style={{marginTop: "6em"}}>
           <div style={clockStyle}>
             <h2 style={{textAlign: "center", color: "black"}}>{this.state.date}</h2>
             <h2 style={{textAlign: "center", color: "black"}}>{this.state.time}</h2>
@@ -70,12 +70,9 @@ const linkStyle = {
 }
 
 const clockStyle = {
-  border: "1px black solid",
   marginLeft: "25%",
   marginRight: "25%",
-  borderRadius: "7px",
-  backgroundColor: "white",
-  opacity: ".5",
+  opacity: ".7",
 }
 
 export default Header

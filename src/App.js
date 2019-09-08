@@ -8,8 +8,6 @@ import Weather from "./components/Weather"
 import Footer from "./components/Footer"
 import NewsList from "./components/NewsList"
 
-import { animated, useSpring } from 'react-spring'
-
 export class App extends Component {
 
   

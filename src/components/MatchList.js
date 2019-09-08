@@ -15,7 +15,11 @@ class MatchList extends Component {
   componentDidMount() {
     this._isMounted = true
 
-    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/football")
+    const headers = {
+      "X-Auth-Token": process.env.REACT_APP_FOOTBALL_API_KEY
+    }
+
+    axios.get("https://cors-anywhere.herokuapp.com/http://api.football-data.org/v2/matches", {headers})
     .then(res => {
       if(this._isMounted) {
         this.setState({data: res.data})
@@ -35,7 +39,7 @@ class MatchList extends Component {
           (<React.Fragment>
             {this.state.data.count !== 0 ? (
               <React.Fragment>
-                <h2 style={{color: "white"}}>Todays Matches</h2>
+                <h2 style={{opacity:".7"}}>Todays Matches</h2>
                 <Paper>
                   {this.state.data.matches.map(match => <MatchItem 
                     key={match.id} 
