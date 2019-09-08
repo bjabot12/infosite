@@ -15,7 +15,7 @@ class Weather extends Component {
   componentDidMount() {
     this._isMounted = true
 
-    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/weather")
+    axios.get("https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=Stavanger,no&appid=" + process.env.REACT_APP_WEATHER_API_KEY)
     .then(res => {
       if(this._isMounted) {
         this.setState({os: res.data})
@@ -33,7 +33,7 @@ class Weather extends Component {
       <div style={weatherStyle}>
         {this.state.os ? (
           <React.Fragment>
-            <h2>{this.state.os.name}</h2>
+            <h2 style={{color:"black", opacity:".7"}}>{this.state.os.name}</h2>
             <Paper>
               <Table>
                 <TableBody>
@@ -62,7 +62,7 @@ class Weather extends Component {
         <div style={{textAlign:"center"}}> 
           <ClipLoader
             css={loadSpinner}
-            color={"#ffffff"}
+            color={"black"}
             size={"200"}
           />
         </div>}

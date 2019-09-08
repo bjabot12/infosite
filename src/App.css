@@ -1,5 +1,5 @@
 body {
-  background-color: #333333;
+  background-color: gainsboro;
 }
 
 html {
@@ -15,7 +15,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(13, 17, 198, 1) 100%);
+  background-image: linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(54, 97, 255, 1) 100%);
 }
 
 html::-webkit-scrollbar-track {

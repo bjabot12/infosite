@@ -3,6 +3,7 @@ import axios from "axios"
 import NewsItem from "./NewsItem"
 import { css } from '@emotion/core';
 import { ClipLoader } from 'react-spinners'
+import FluidGrid from 'react-fluid-grid'
 
 class NewsList extends Component {
 
@@ -14,8 +15,7 @@ class NewsList extends Component {
 
   componentDidMount() {
     this._isMounted = true
-
-    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/news")
+    axios.get("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=no&apiKey=" + process.env.REACT_APP_NEWS_API_KEY)
       .then(res => {
         if(this._isMounted) {
           this.setState({news: res.data})
@@ -29,23 +29,31 @@ class NewsList extends Component {
 
   render() {
 
-    return(
+    const styleStrategies = [
+      { mediaQuery: '(max-width: 719.9px)', style: { numberOfColumns: 1, gutterHeight: 0, gutterWidth: 0 } },
+      { mediaQuery: '(min-width: 720px) and (max-width: 1023.9px)', style: { numberOfColumns: 2, gutterHeight: 0, gutterWidth: 0 } },
+      { mediaQuery: '(min-width: 1024px)', style: { numberOfColumns: 3, gutterHeight: 0, gutterWidth: 0 } }
+    ]
+
+    return (
       <div style={newsStyle}>
+        <h2 style={{opacity:".7", marginLeft:".6em"}}>News articles</h2>
         {this.state.news ?
-          (<React.Fragment>
-            <ul style={{listStyle: "none", align: "center", padding:"0"}}> {this.state.news.articles.map(news => 
-              <NewsItem 
-                key={news.title}
-                data={news}
-              />
+          (<FluidGrid 
+          
+          styleStrategies={styleStrategies}>  
+            {this.state.news.articles.map(news => 
+                <NewsItem 
+                  key={news.title}
+                  data={news}
+                />
               )}
-            </ul>
-          </React.Fragment>)
-          :
-          <div style={{marginLeft:"43%"}}> 
+          </FluidGrid>)
+        :
+          <div style={{textAlign:"center"}}> 
             <ClipLoader
               css={loadSpinner}
-              color={"#ffffff"}
+              color={"black"}
               size={"200"}
             />
           </div>
@@ -62,8 +70,8 @@ const loadSpinner = css`
 const newsStyle = {
   marginLeft: "5%",
   marginRight: "5%",
-  display: "flex",
-  marginBottom: "10em"
+  marginTop: "4em",
+  marginBottom: "10em",
 }
 
 export default NewsList

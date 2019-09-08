@@ -6,12 +6,20 @@ class MatchItem extends Component {
 
     const date = this.props.data.utcDate
     let finalDate = date.split("T")
+    let times = finalDate[1].split("Z")
+    let clock = times[0].split(":")
+    let hour = parseInt(clock[0]) + 2
+    if (hour.toString().length === 1) {
+      hour = "0" + hour
+    } else if (hour === 24 ) {
+      hour = "00"
+    }
 
     return (
       <div style={divStyle}>
         <p style={compStyle}>{this.props.data.competition.name}</p>
         <p style={teamStyle}>{this.props.data.homeTeam.name} - {this.props.data.awayTeam.name}</p>
-        <p style={timeStyle}>{finalDate[0]}<br/>{finalDate[1].split("Z")}</p>
+        <p style={timeStyle}>{hour+":"+clock[1]}</p>
       </div>
     )
   }

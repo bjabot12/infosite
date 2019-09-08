@@ -31,19 +31,19 @@ export class Header extends Component {
     return (
       <React.Fragment>
         <div style={headlist}>
-          <div style={{width:"33%", display:"flex"}}>
+          <div style={{display:"flex"}}>
             <Link style={linkStyle} to="/">
-              <HeaderItem name="News" />
+              <HeaderItem name="News " />
             </Link>
             <Link style={linkStyle} to="/weather">
-              <HeaderItem name="Weather" />
+              <HeaderItem name="Weather " />
             </Link>
             <Link style={linkStyle} to="/football">
-              <HeaderItem name="Football" />
+              <HeaderItem name="Football " />
             </Link>
           </div>
         </div>
-        <div style={{marginTop: "5em"}}>
+        <div style={{marginTop: "6em"}}>
           <div style={clockStyle}>
             <h2 style={{textAlign: "center", color: "black"}}>{this.state.date}</h2>
             <h2 style={{textAlign: "center", color: "black"}}>{this.state.time}</h2>
@@ -60,7 +60,7 @@ const headlist = {
   top: 0, 
   width: "100%",
   opacity: "1",
-  backgroundImage: "linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(13, 17, 198, 1) 100%)",
+  backgroundImage: "linear-gradient(45deg, rgba(63, 191, 191, 1), rgba(54, 97, 255, 1) 100%)",
   zIndex: "1"
 }
 
@@ -70,12 +70,9 @@ const linkStyle = {
 }
 
 const clockStyle = {
-  border: "1px black solid",
   marginLeft: "25%",
   marginRight: "25%",
-  borderRadius: "7px",
-  backgroundColor: "white",
-  opacity: ".3",
+  opacity: ".7",
 }
 
 export default Header
