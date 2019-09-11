@@ -15,7 +15,7 @@ class Weather extends Component {
   componentDidMount() {
     this._isMounted = true
 
-    axios.get("https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=Stavanger,no&appid=" + process.env.REACT_APP_WEATHER_API_KEY)
+    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/weather")
     .then(res => {
       if(this._isMounted) {
         this.setState({os: res.data})
