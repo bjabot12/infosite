@@ -15,7 +15,7 @@ class NewsList extends Component {
 
   componentDidMount() {
     this._isMounted = true
-    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/news")
+    axios.get("https://cors-anywhere.herokuapp.com/https://info-backend1.herokuapp.com/news")
       .then(res => {
         if(this._isMounted) {
           this.setState({news: res.data})

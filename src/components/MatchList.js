@@ -12,17 +12,29 @@ class MatchList extends Component {
     data: null // API response from the football-API
   }
 
+  // componentDidMount() {
+  //   this._isMounted = true
+
+  //   const headers = {
+  //     "X-Auth-Token": process.env.REACT_APP_FOOTBALL_API_KEY
+  //   }
+
+  //   axios.get("https://cors-anywhere.herokuapp.com/http://api.football-data.org/v2/matches", {headers})
+  //   .then(res => {
+  //     if(this._isMounted) {
+  //       this.setState({data: res.data})
+  //     }
+  //   })
+
+
+  // }
+
   componentDidMount() {
     this._isMounted = true
-
-    const headers = {
-      "X-Auth-Token": process.env.REACT_APP_FOOTBALL_API_KEY
-    }
-
-    axios.get("https://cors-anywhere.herokuapp.com/http://api.football-data.org/v2/matches", {headers})
-    .then(res => {
-      if(this._isMounted) {
-        this.setState({data: res.data})
+    axios.get("https://cors-anywhere.herokuapp.com/https://info-backend1.herokuapp.com/football")
+      .then(res => {
+        if(this._isMounted) {
+          this.setState({data: res.data})
       }
     })
   }

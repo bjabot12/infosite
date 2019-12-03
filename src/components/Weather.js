@@ -15,7 +15,7 @@ class Weather extends Component {
   componentDidMount() {
     this._isMounted = true
 
-    axios.get("https://cors-anywhere.herokuapp.com/https://us-central1-info-siden.cloudfunctions.net/weather")
+    axios.get("https://cors-anywhere.herokuapp.com/https://info-backend1.herokuapp.com/weather")
     .then(res => {
       if(this._isMounted) {
         this.setState({os: res.data})
